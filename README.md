@@ -1,5 +1,3 @@
-# SIMDA-PPNS
-Sistem Informasi Manajemen Database PPNS
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -399,15 +397,3 @@ tr[i].style.display=tampil?"":"none";
 
 </body>
 </html>
-SIMDA-PPNS/
-│
-├── index.html
-├── css/
-│   └── style.css      (opsional)
-├── js/
-│   └── script.js      (opsional)
-├── images/
-│   ├── logo.png
-│   └── background.jpg
-└── data/
-    └── ppns.json
