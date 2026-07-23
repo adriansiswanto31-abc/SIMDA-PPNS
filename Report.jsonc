@@ -1,0 +1,68 @@
+{
+  "name": "Report",
+  "type": "object",
+  "properties": {
+    "tahun": {
+      "type": "number",
+      "description": "Tahun laporan"
+    },
+    "judul": {
+      "type": "string",
+      "description": "Judul laporan"
+    },
+    "ringkasan": {
+      "type": "string",
+      "description": "Ringkasan kegiatan update database tahun ini"
+    },
+    "total_data": {
+      "type": "number",
+      "description": "Total data PPNS pada akhir tahun"
+    },
+    "data_baru": {
+      "type": "number",
+      "description": "Jumlah data baru yang ditambahkan"
+    },
+    "data_diperbarui": {
+      "type": "number",
+      "description": "Jumlah data yang diperbarui"
+    },
+    "data_nonaktif": {
+      "type": "number",
+      "description": "Jumlah data yang dinonaktifkan/pensiun"
+    },
+    "kabupaten_terlibat": {
+      "type": "number",
+      "description": "Jumlah kabupaten/kota yang data diperbarui"
+    },
+    "catatan": {
+      "type": "string",
+      "description": "Catatan tambahan"
+    },
+    "file_url": {
+      "type": "string",
+      "description": "URL lampiran file laporan (PDF/dokumen)"
+    }
+  },
+  "required": [
+    "tahun",
+    "judul"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": null,
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
