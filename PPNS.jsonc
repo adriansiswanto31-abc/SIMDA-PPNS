@@ -1,0 +1,176 @@
+{
+  "name": "PPNS",
+  "type": "object",
+  "properties": {
+    "nip": {
+      "type": "string",
+      "description": "NIP 18 digit"
+    },
+    "nama_lengkap": {
+      "type": "string"
+    },
+    "gelar_depan": {
+      "type": "string"
+    },
+    "gelar_belakang": {
+      "type": "string"
+    },
+    "tempat_lahir": {
+      "type": "string"
+    },
+    "tanggal_lahir": {
+      "type": "string",
+      "format": "date"
+    },
+    "jenis_kelamin": {
+      "type": "string",
+      "enum": [
+        "Laki-laki",
+        "Perempuan"
+      ]
+    },
+    "agama": {
+      "type": "string",
+      "enum": [
+        "Islam",
+        "Kristen",
+        "Katolik",
+        "Hindu",
+        "Buddha",
+        "Konghucu"
+      ]
+    },
+    "alamat": {
+      "type": "string"
+    },
+    "kabupaten_kota": {
+      "type": "string",
+      "description": "Kabupaten/Kota tempat bertugas di NTT"
+    },
+    "latitude": {
+      "type": "number"
+    },
+    "longitude": {
+      "type": "number"
+    },
+    "no_telepon": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "pangkat": {
+      "type": "string"
+    },
+    "golongan": {
+      "type": "string"
+    },
+    "jabatan": {
+      "type": "string"
+    },
+    "unit_kerja": {
+      "type": "string"
+    },
+    "instansi_induk": {
+      "type": "string",
+      "description": "Instansi induk/Dinas"
+    },
+    "bidang_tugas": {
+      "type": "string",
+      "description": "Bidang tugas penyidikan"
+    },
+    "nomor_sk_ppns": {
+      "type": "string"
+    },
+    "tanggal_sk_ppns": {
+      "type": "string",
+      "format": "date"
+    },
+    "masa_tugas_mulai": {
+      "type": "string",
+      "format": "date"
+    },
+    "masa_tugas_akhir": {
+      "type": "string",
+      "format": "date"
+    },
+    "pendidikan_terakhir": {
+      "type": "string"
+    },
+    "status_pegawai": {
+      "type": "string",
+      "enum": [
+        "PNS",
+        "PPPK",
+        "CPNS"
+      ]
+    },
+    "status_ppns": {
+      "type": "string",
+      "enum": [
+        "Aktif",
+        "Nonaktif",
+        "Pensiun",
+        "Cuti"
+      ],
+      "default": "Aktif"
+    },
+    "foto_url": {
+      "type": "string",
+      "description": "URL foto penyidik"
+    },
+    "ktp_url": {
+      "type": "string",
+      "description": "URL file scan KTP"
+    },
+    "kta_url": {
+      "type": "string",
+      "description": "URL file scan KTA (Kartu Anggota Penyidik)"
+    },
+    "sk_url": {
+      "type": "string",
+      "description": "URL file SK Pengangkatan PPNS"
+    },
+    "ijazah_url": {
+      "type": "string",
+      "description": "URL file ijazah terakhir"
+    },
+    "catatan": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "nip",
+    "nama_lengkap",
+    "kabupaten_kota",
+    "status_ppns"
+  ],
+  "rls": {
+    "create": null,
+    "read": null,
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}
